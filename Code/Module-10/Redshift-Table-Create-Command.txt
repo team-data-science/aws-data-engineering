@@ -1,0 +1,14 @@
+
+#create Table for import set to not null .
+#This way row inserts run in error if they are not correctly imported
+
+create table FirehoseTransactions(
+	unitprice varchar(200) not null,
+  	description varchar(200) not null,
+ 	country varchar(200) not null,
+  	quantity varchar(200) not null,
+  	invoiceno varchar(200) not null,
+    invoicedate varchar(200) not null,
+    customerid varchar(200) not null,
+    stockcode varchar(200) not null
+);

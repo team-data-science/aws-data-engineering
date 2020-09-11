@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "kinesis:ListStreams",
+                "kinesis:SubscribeToShard",
+                "kinesis:DescribeStreamSummary",
+                "kinesis:ListShards",
+                "kinesis:DescribeStreamConsumer",
+                "kinesis:GetShardIterator",
+                "kinesis:GetRecords",
+                "kinesis:DescribeStream",
+                "kinesis:DescribeLimits",
+                "kinesis:ListStreamConsumers",
+                "kinesis:ListTagsForStream"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
