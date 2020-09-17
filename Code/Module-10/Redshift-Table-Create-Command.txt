@@ -2,13 +2,19 @@
 #create Table for import set to not null .
 #This way row inserts run in error if they are not correctly imported
 
-create table FirehoseTransactions(
-	unitprice varchar(200) not null,
-  	description varchar(200) not null,
- 	country varchar(200) not null,
-  	quantity varchar(200) not null,
-  	invoiceno varchar(200) not null,
-    invoicedate varchar(200) not null,
-    customerid varchar(200) not null,
-    stockcode varchar(200) not null
+create table firehosetransactions(
+	InvoiceNo int not null,
+	StockCode varchar(200) not null,
+	Description varchar(200) not null,
+	Quantity int not null,	
+	InvoiceDate varchar(200) not null,
+	UnitPrice float not null,
+	CustomerID int not null,  	
+ 	Country varchar(200) not null
 );
+
+# For finding errors during import
+select * from STL_LOAD_ERRORS
+
+# More details about the errors
+STL_LOADERROR_DETAIL
