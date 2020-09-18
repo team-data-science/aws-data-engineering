@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 
 # URL of your endpoint
-URL = "https://xxxxxxx.execute-api.us-east-1.amazonaws.com/P/hello"
+URL = "https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/hello"
 
 #read the testfile
 data = pd.read_csv('TestSample.csv', sep = ',')
