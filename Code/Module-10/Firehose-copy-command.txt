@@ -1,0 +1,3 @@
+COPY firehosetransactions FROM 's3://firehoseredshift/<manifest>'
+CREDENTIALS 'aws_iam_role=arn:aws:iam::<aws-account-id>:role/<role-name>' 
+MANIFEST json 's3://firehoseredshift/jsonpaths.json';
