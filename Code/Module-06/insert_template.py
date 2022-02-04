@@ -2,7 +2,12 @@ import pandas as pd
 import requests
 
 '''
-Update 2021-02-04: Created the TestSample.csv file in the new data folder and added the path to it here . This way you don't have to create it yourself
+Updates: 
+- 2021-02-04: Created the TestSample.csv file in the new data folder and added the path to it here . This way you don't have to create it yourself
+
+Notes:
+- If you run into a json-body not found error, than you forgot to configure the application/json mapping template in the method
+- Some students had the problem: KeyError: 'context'  -- I can only force this when I dont't send in a payload to the API.
 '''
 
 # URL of your endpoint
