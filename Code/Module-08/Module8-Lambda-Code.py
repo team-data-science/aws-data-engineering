@@ -31,6 +31,14 @@ def lambda_handler(event, context):
 
         response = client.update_item(TableName='Customers', Key = customer_key, AttributeUpdates = ex_customer)
 
+        
+        # If we have multiple items the response will be :
+        # items = {'account_type': {'S': 'standard_user'}, 'username': {'S': 'johndoe'}, 'first_name': {'S': 'John'}}
+        # Specify the table name
+        # table_name = 'YourTableName'
+        # response = client.batch_write_item(RequestItems={table_name: items})
+
+        
         # Create Inventory Row
         #############################
 
