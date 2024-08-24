@@ -16,7 +16,7 @@ timestamp = date_obj.strftime("%Y-%m-%d-%H-%M-%S")
 kinesis_records = []
 
 # Environment variable for S3 bucket name
-bucket_name = os.environ["BUCKET_NAME"]
+bucket_name = os.environ["bucket_name"]
 
 
 def lambda_handler(event, context):
