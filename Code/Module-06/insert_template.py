@@ -12,11 +12,11 @@ Notes:
 '''
 
 # URL of your endpoint
-URL = "https://xxxxxx.execute-api.us-east-1.amazonaws.com/prod/hello"
+URL = "https://waz92zyjq7.execute-api.us-east-1.amazonaws.com/dev/main"
 
 
 #read the testfile
-data = pd.read_csv('data/TestSample.csv', sep = ',')
+data = pd.read_csv('Online_Retail_Cleaned_10rows.csv', sep = ',')
 
 # write a single row from the testfile into the api
 #export = data.loc[2].to_json()

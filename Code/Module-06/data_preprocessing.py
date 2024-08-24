@@ -10,8 +10,8 @@ data = data.dropna()
 data = data[data['InvoiceNo'].apply(lambda x: str(x).isdigit())]
 
 # Create a new DataFrame with limited amount of rows
-data_limited = data.head(1000)
+data_limited = data.head(10)
 
 # Save the cleaned data to a new csv file
 data.to_csv('Online_Retail_Cleaned.csv', index = False, encoding='utf-8', sep=',')
-data_limited.to_csv('Online_Retail_Cleaned_1000rows.csv', index = False, encoding='utf-8', sep=',')
+data_limited.to_csv('Online_Retail_Cleaned_10rows.csv', index = False, encoding='utf-8', sep=',')
