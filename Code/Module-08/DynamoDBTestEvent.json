@@ -20,7 +20,7 @@
         "kinesis": {
           "partitionKey": "partitionKey-03",
           "kinesisSchemaVersion": "1.0",
-          "data": "eyJJbnZvaWNlTm8iOjUzNjM2NSwiU3RvY2tDb2RlIjoiNzEwNTMiLCJEZXNjcmlwdGlvbiI6IldISVRFIE1FVEFMIExBTlRFUk4iLCJRdWFudGl0eSI6NiwiSW52b2ljZURhdGUiOiIxMlwvMVwvMTAgODoyNiIsIlVuaXRQcmljZSI6My4zOSwiQ3VzdG9tZXJJRCI6MTc4NTAsIkNvdW50cnkiOiJVbml0ZWQgS2luZ2RvbSJ9",
+          "data": "eyJJbnZvaWNlTm8iOjUzNjM2NywiU3RvY2tDb2RlIjoiODQ4NzkiLCJEZXNjcmlwdGlvbiI6IkFTU09SVEVEIENPTE9VUiBCSVJEIE9STkFNRU5UIiwiUXVhbnRpdHkiOjMyLCJJbnZvaWNlRGF0ZSI6IjEyXC8xXC8xMCA4OjM0IiwiVW5pdFByaWNlIjoxLjY5LCJDdXN0b21lcklEIjoxMzA0NywiQ291bnRyeSI6IlVuaXRlZCBLaW5nZG9tIn0=",
           "sequenceNumber": "49545115243490985018280067714973144582180062593244200961",
           "approximateArrivalTimestamp": 1428537600
         },
