@@ -16,8 +16,6 @@ def lambda_handler(event, context):
         response = dynamo_client.get_item(TableName = 'Customers', Key = {'CustomerID':{'N': im_customerID}})
         print(response['Item'])
 
-        #myreturn = "This is the return of the get"
-
         return {
             'statusCode': 200,
             'body': json.dumps(response['Item'])
