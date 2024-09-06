@@ -7,7 +7,7 @@ Updates:
 
 Notes:
 - If you run into a json-body not found error, than you forgot to configure the application/json mapping template in the method
-- Some students had the problem: They get 200 here but the ClodWatch log of the Lambda says KeyError: 'context'  -- I can only force this when I dont't send in a payload to the API. Make sure you send data
+- Some students had the problem: They get 200 here but the ClodWatch log of the Lambda says KeyError: 'context'  -- I can only force this when I don't send in a payload to the API. Make sure you send data
 - If you get 403 error: Make sure to add the resource name you created in API gateway to the URL . In my case "hello". If you just copy out your URL from the "stage" in the UI then this is missing. 
 '''
 
@@ -32,7 +32,7 @@ for i in data.index:
         #send it to the api
         response = requests.post(URL, data = export)
 
-        # print the returncode
+        # print the return code
         print(export)
         print(response)
     except:

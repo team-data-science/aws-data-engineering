@@ -11,9 +11,9 @@ def lambda_handler(event, context):
     if method == "GET":
         dynamo_client = boto3.client('dynamodb')
 
-        im_customerID = event['params']['querystring']['CustomerID']
-        print(im_customerID)
-        response = dynamo_client.get_item(TableName = 'Customers', Key = {'CustomerID':{'N': im_customerID}})
+        im_invoice_id = event['params'][' querystring']['InvoiceNo']
+        print(im_invoice_id)
+        response = dynamo_client.get_item(TableName='Invoices', Key={'InvoiceNo': {'N': im_invoice_id}})
         print(response['Item'])
 
         return {
