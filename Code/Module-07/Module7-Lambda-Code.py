@@ -1,43 +1,48 @@
-from __future__ import print_function
-
 import base64
 import json
 import boto3
+import os
 from datetime import datetime
 
-s3_client = boto3.client('s3')
+s3_client = boto3.client("s3")
 
-# Converting datetime object to string
-dateTimeObj = datetime.now()
+# Get the current datetime object
+date_obj = datetime.now()
 
-#format the string
-timestampStr = dateTimeObj.strftime("%d-%b-%Y-%H%M%S")
+# Format the datetime object as a string
+timestamp = date_obj.strftime("%Y-%m-%d-%H-%M-%S")
 
-# this is the list for the records
-kinesisRecords = []
+# Create an empty list to store the whole batch of records
+kinesis_records = []
+
+# Environment variable for S3 bucket name
+bucket_name = os.environ["bucket_name"]
+
 
 def lambda_handler(event, context):
-    #print("Received event: " + json.dumps(event, indent=2))
-    for record in event['Records']:
+    # Get some information of the size of the batch
+    record_count = len(event["Records"])
+    print(f"Received {record_count} records from Kinesis stream.")
+
+    for record in event["Records"]:
         # Kinesis data is base64 encoded so decode here
-        # If you run into the error: [ERROR] TypeError: sequence item 0: expected str instance, bytes found
-        # Add the ecoding into UTF8: 
-        #payload = base64.b64decode(record['kinesis']['data']).decode('utf-8')
-        payload = base64.b64decode(record['kinesis']['data'])
+        payload = base64.b64decode(record["kinesis"]["data"]).decode("utf-8")
 
-
-        # append each record to a list
-        kinesisRecords.append(payload)
-        # this is just for logging
+        # Use this print statement for more verbose logging
         # print("Decoded payload: " + payload)
 
-    # make a string out of the list. Backslash n for new line in the s3 file
-    ex_string = '\n'.join(kinesisRecords)
+        kinesis_records.append(payload)
 
-    # generate the name for the file with the timestamp
-    mykey = 'output-' + timestampStr + '.txt'
+        # Convert the list of records to a JSON string
+        json_data = json.dumps(kinesis_records)
 
-    #put the file into the s3 bucket
-    response = s3_client.put_object(Body=ex_string, Bucket='aws-de-project', Key= mykey)
+        file_name = f"data_{timestamp}.json"
 
-    return 'Successfully processed {} records.'.format(len(event['Records']))
+        s3_client.put_object(
+            Bucket=bucket_name,
+            Key=file_name,
+            Body=json_data,
+            ContentType="application/json",
+        )
+        print(f"Successfully uploaded file to S3: {file_name}")
+    return "Successfully processed {} records.".format(len(event["Records"]))
